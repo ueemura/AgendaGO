@@ -61,7 +61,7 @@ body {
     border-color: #002058;
 }
 
-.buttons {
+.buttons, #salvarAnotacao {
     cursor: pointer;
     height: 40px;
     width: 48%;
@@ -72,7 +72,7 @@ body {
     filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.20)) drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.12)) drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.14)); 
 }
 
-.buttons:hover, #aEsqueci:hover, .mainButtons:hover, .anotacoesDivs:hover input {
+.buttons:hover, #aEsqueci:hover, .mainButtons:hover, .anotacoesDivs:hover input, #salvarAnotacao:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease;
 }
@@ -133,7 +133,7 @@ body {
     transition: border 0.3s ease;
 }
 
-#buttonAnotacoes:hover {
+#buttonAnotacoes:hover, #salvarAnotacao:hover {
     border: 4px solid #002058;
     border-radius: 15px;
     box-sizing: border-box;
@@ -150,7 +150,7 @@ body {
     justify-content: space-between;
 }
 
-h1 {
+#tituloAnotacoes {
     margin: 0;
     padding: 6vh 0 5vh 0;
     color: #FFF;
@@ -204,3 +204,58 @@ h1 {
     transition: transform 0.3s ease;
 }
 
+#tituloAnotacao {
+    margin: 0;
+    padding: 6vh 0 0 0;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#numeroAnotacao {
+    margin: 0;
+    padding: 0 0 5vh 0;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 35px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+#formAnotacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#textAnotacao {
+    border-radius: 15px 15px 0 15px;
+    border: 2.25px solid #4A6EC9;
+    transition: border-color 0.3s ease;
+    padding: 5px;
+}
+
+#textAnotacao:hover {
+    border-color: #002058;
+}
+
+#textAnotacao:focus {
+    outline: none;
+    border-color: #002058;
+}
+
+#salvarAnotacao {
+    margin: 1vh 0 0 0;
+    width: 99%;
+    border-radius: 15px;
+    border: 1px solid #4A6EC9;
+    background: #4472C4;
+    color: #F9F9F9;
+}
+
+.anotacaoFooter {
+    margin: 9vh 0 0 0;
+}

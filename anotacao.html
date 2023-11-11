@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/icon.svg">
+    <title>Agenda GO®</title>
+</head>
+<body>
+    <div id="pageWrapperAnotacao" class="pageWrapper">
+        <h1 id="tituloAnotacao">ANOTAÇÃO</h1>
+        <label id="numeroAnotacao" for="textAnotacao">DOC 01</label>
+        <div id="divAnotacao" class="anotacoesLineDivs">
+            <form id="formAnotacao" action="">
+                <textarea id="textAnotacao" name="anotacao" rows="21" cols="60" placeholder="Insira suas anotações aqui">
+                    
+                </textarea>
+                <br>
+                <input id="salvarAnotacao" type="submit" value="Salvar">
+            </form>
+        </div>
+        <div id="blockFooter">
+            <div id="footer" class="anotacaoFooter">
+                <div id="divShare">
+                    <input type="image" src="assets/images/share.svg" alt="Compartilhar">
+                </div>
+                <div id="divMuteSound">
+                    <input type="image" src="assets/images/muteUnmuteSound.svg" alt="Mute/Unmute sound">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="anotacaoScript.js"></script>
+</body>
