@@ -8,7 +8,7 @@
     <title>Agenda GO®</title>
 </head>
 <body>
-    <div id="pageWrapperMain">
+    <div id="pageWrapperMain" class="pageWrapper">
         <div id="main">
             <div class="mainLineDivs">
                 <div id="mainCalendar" class="mainDivs">
@@ -53,4 +53,10 @@
         </div>
     </div>
 </body>
+<script>
+    document.getElementById('buttonAnotacoes').addEventListener('click', function() {
+        window.location.href = 'anotacoes.html';
+    });
+</script>
+<script src="script.js"></script>
 </html>

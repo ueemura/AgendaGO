@@ -4,7 +4,7 @@ body {
     margin: 0;
 }
 
-#pageWrapper {
+#pageWrapperLogin {
     height: 97vh;
     background-image: linear-gradient(180deg, rgba(217, 217, 217, 0.00), #18388C);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
@@ -88,12 +88,13 @@ body {
 #divMuteSound {
     display: flex;
     justify-content: end;
-    margin: 10vh 2vh 0 0;
+    margin: 4vh 3vh 0 0;
 }
 
-#pageWrapperMain {
+.pageWrapper {
     height: 100vh;
     background: #254392;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
 }
 
 #main {
@@ -117,10 +118,55 @@ body {
 #divShare {
     display: flex;
     justify-content: start;
-    margin: 10vh 0 0 2vh;
+    margin: 4vh 0 0 3vh;
 }
 
 #footer {
     display: flex;
     justify-content: space-between;
+}
+
+h1 {
+    margin: 0;
+    padding: 6vh 0 5vh 0;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.anotacoesLineDivs {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.anotacoesDivs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.anotacoesDivs input.anotacoesButtons {
+    transition: border 0.3s ease;
+}
+
+.anotacoesDivs:hover input {
+    border: 4px solid #002058;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.anotacoesButtons {
+    margin: 2vh 2vh 0.1vh 2vh;
+    border: 4px solid transparent;
+} 
+
+.aAnotacoes {
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 4px solid transparent;
 }
