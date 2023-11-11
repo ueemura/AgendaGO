@@ -47,8 +47,18 @@ body {
     height: 44px;
     width: 237px;
     border-radius: 15px;
-    border: 1px solid #4A6EC9;
+    border: 2.25px solid #4A6EC9;
     background: #FFF;
+    transition: border-color 0.3s ease;
+}
+
+.campo:hover {
+    border-color: #002058;
+}
+
+.campo:focus {
+    outline: none;
+    border-color: #002058;
 }
 
 .buttons {
@@ -60,6 +70,11 @@ body {
     font-size: 22px; 
     font-weight: 400;
     filter: drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.20)) drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.12)) drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.14)); 
+}
+
+.buttons:hover, #aEsqueci:hover, .mainButtons:hover, .anotacoesDivs:hover input {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 
 #buttonEntrar {
@@ -98,7 +113,7 @@ body {
 }
 
 #main {
-    padding: 25px 0 0 0;
+    padding: 20px 0 0 0;
 }
 
 .mainLineDivs {
@@ -113,6 +128,15 @@ body {
 
 .mainButtons {
     margin: 3vh;
+    border: 4px solid transparent;
+    border-radius: 15px;
+    transition: border 0.3s ease;
+}
+
+#buttonAnotacoes:hover {
+    border: 4px solid #002058;
+    border-radius: 15px;
+    box-sizing: border-box;
 }
 
 #divShare {
@@ -148,7 +172,7 @@ h1 {
 }
 
 .anotacoesDivs input.anotacoesButtons {
-    transition: border 0.3s ease;
+    transition: border 0.5s ease;
 }
 
 .anotacoesDivs:hover input {
@@ -170,3 +194,13 @@ h1 {
     text-decoration: none;
     border: 4px solid transparent;
 }
+
+.anotacoesFooter {
+    margin: 15vh 0 0 0;
+}
+
+#divMuteSound input:hover, #divShare input:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
