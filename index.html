@@ -25,6 +25,25 @@
                 <div id="divButtons" class="loginDivs">
                     <input id="buttonEntrar" class="buttons" type="submit" value="Entrar">
                     <input id="buttonCadastrar" class="buttons" type="submit" value="Cadastrar">
+                    <dialog id="formCadastro">
+                        <h4 id="tituloCadastro">Cadastro</h4>
+                        <form>
+                            <div id="divEmailCadastro" class="loginDivs">
+                                <label class="label" for="emailCadastro">Email</label>
+                                <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required>
+                            </div>
+                            <div id="divSenhaCadastro" class="loginDivs">
+                                <label class="label" for="senhaCadastro">Senha</label>
+                                <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required>
+                            </div>
+                            <div id="divConfirmacaoSenha" class="loginDivs">
+                                <label class="label" for="confirmacao">Confirme sua Senha</label>
+                                <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required>
+                            </div>
+                            <input id="buttonSalvarCadastro" class="buttons" type="submit" value="Cadastrar">
+                        </form>
+                        <button id="fecharCadastro" class="buttons">Cancelar</button>
+                    </dialog>
                 </div>
                 <div id="divEsqueci" class="loginDivs">
                     <a id="aEsqueci" href="#">Esqueci minha senha</a>

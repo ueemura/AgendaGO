@@ -16,7 +16,11 @@ body {
     margin: 3vh;
 }
 
-#divEmail, #divSenha {
+#divLogin {
+    display: grid;
+}
+
+#divEmail, #divSenha, #divEmailCadastro, #divSenhaCadastro, #divConfirmacaoSenha {
     position: relative;
 }
 
@@ -77,13 +81,13 @@ body {
     transition: transform 0.3s ease;
 }
 
-#buttonEntrar {
+#buttonEntrar, #buttonSalvarCadastro {
     border: 1px solid #4A6EC9;
     background: #4472C4;
     color: #F9F9F9;
 }
 
-#buttonCadastrar {
+#buttonCadastrar, #fecharCadastro {
     border: 1px solid #4A6EC9;
     background: #FFF;
     color: #4472C4;
@@ -110,6 +114,24 @@ body {
     height: 100vh;
     background: #254392;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+}
+
+#formCadastro {
+    background-image: linear-gradient(180deg, rgba(24, 56, 140), rgba(217, 217, 217));
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    opacity: 0; /* Inicialmente oculto */
+    transform: scale(0.8); /* Inicialmente reduzido */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#formCadastro.show {
+    opacity: 1; /* Torna o dialog visível */
+    transform: scale(1); /* Retorna ao tamanho normal */
+}
+
+#tituloCadastro {
+    padding: 2vh 0 0 0 !important;
 }
 
 #main {
@@ -169,7 +191,7 @@ body {
     justify-content: space-between;
 }
 
-#tituloAnotacoes {
+#tituloAnotacoes, #tituloAnotacao, #tituloCadastro {
     margin: 0;
     padding: 6vh 0 5vh 0;
     color: #FFF;
@@ -234,14 +256,7 @@ body {
 }
 
 #tituloAnotacao {
-    margin: 0;
-    padding: 6vh 0 0 0;
-    color: #FFF;
-    font-family: Roboto;
-    font-size: 45px;
-    font-weight: 700;
-    text-align: center;
-    text-shadow: 4px 4px rgba(0, 0, 0, 0.35);
+    padding: 6vh 0 0 0 !important;
 }
 
 #numeroAnotacao {
