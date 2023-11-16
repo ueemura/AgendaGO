@@ -8,29 +8,30 @@ document.getElementById('buttonLoginGoogle').addEventListener('click', function(
 });
 
 // Modal Cadastrar Engine
-var modalOne = document.getElementById('formCadastro'); 
-var openModalOne = document.getElementById('buttonCadastrar'); 
-var buttonCloseOne = document.getElementById('fecharCadastro');
+var modalCadastro = document.getElementById('formCadastro'); 
+var openModalCadastro = document.getElementById('buttonCadastrar'); 
+var buttonCloseCadastro = document.getElementById('fecharCadastro');
 
-openModalOne.onclick = function() {
-  modalOne.showModal();
+openModalCadastro.onclick = function() {
+    modalCadastro.showModal();
 }
 
-buttonCloseOne.onclick = function() {
-  modalOne.close();
+buttonCloseCadastro.onclick = function() {
+    modalCadastro.close();
 };
+
 document.getElementById('buttonCadastrar').addEventListener('click', function() {
-    modalOne.classList.add('show'); // Adiciona a classe show ao abrir
+    modalCadastro.classList.add('show'); // Adiciona a classe show ao abrir
 });
 
-buttonCloseOne.onclick = function() {
-    modalOne.classList.remove('show'); // Remove a classe show ao fechar
+buttonCloseCadastro.onclick = function() {
+    modalCadastro.classList.remove('show'); // Remove a classe show ao fechar
 };
 
 document.getElementById('fecharCadastro').addEventListener('click', function() {
-    modalOne.close();
+    modalCadastro.close();
 });
 
 document.getElementById('buttonCadastrar').addEventListener('click', function() {
-    modalOne.showModal();
+    modalCadastro.showModal();
 });
