@@ -23,7 +23,7 @@ buttonCloseCadastro.onclick = function() {
     modalCadastro.close();
 };
 
-document.getElementById('buttonCadastrar').addEventListener('click', function() {
+document.getElementById('anotacaoPlus').addEventListener('click', function() {
     modalCadastro.classList.add('show'); // Adiciona a classe show ao abrir
 });
 
@@ -31,10 +31,10 @@ buttonCloseCadastro.onclick = function() {
     modalCadastro.classList.remove('show'); // Remove a classe show ao fechar
 };
 
-document.getElementById('fecharCadastro').addEventListener('click', function() {
+document.getElementById('fecharTituloNovoDoc').addEventListener('click', function() {
     modalCadastro.close();
 });
 
-document.getElementById('buttonCadastrar').addEventListener('click', function() {
+document.getElementById('anotacaoPlus').addEventListener('click', function() {
     modalCadastro.showModal();
 });
