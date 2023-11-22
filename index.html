@@ -13,47 +13,47 @@
             <img id="imgLogo" src="assets/images/logo.svg" alt="logo" srcset="">
         </div>
         <div id="divLogin" class="loginDivs">
-            <form>
+            <form id="formEntrar">
                 <div id="divEmail" class="loginDivs">
                     <label class="label" for="email">Email</label>
-                    <input class="campo" type="email" name="email" id="campoEmail" placeholder="usuario@gmail.com" required>
+                    <input class="campo" type="email" name="email" id="campoEmail" placeholder="usuario@gmail.com" required onchange="validateFields()">
                 </div>
                 <div id="divSenha" class="loginDivs">
                     <label class="label" for="senha">Senha</label>
-                    <input class="campo" type="password" name="senha" id="campoSenha" placeholder="************" required>
+                    <input class="campo" type="password" name="senha" id="campoSenha" placeholder="************" required onchange="validateFields()">
                 </div>
                 <div id="divButtons" class="loginDivs">
-                    <input id="buttonEntrar" class="buttons" type="submit" value="Entrar">
-                    <input id="buttonCadastrar" class="buttons" type="submit" value="Cadastrar">
-                    <!-- -->
-                    <dialog id="formCadastro">
-                        <h4 id="tituloCadastro">Cadastro</h4>
-                        <form>
-                            <div id="divEmailCadastro" class="loginDivs">
-                                <label class="label" for="emailCadastro">Email</label>
-                                <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required>
-                            </div>
-                            <div id="divSenhaCadastro" class="loginDivs">
-                                <label class="label" for="senhaCadastro">Senha</label>
-                                <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required>
-                            </div>
-                            <div id="divConfirmacaoSenha" class="loginDivs">
-                                <label class="label" for="confirmacao">Confirme sua Senha</label>
-                                <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required>
-                            </div>
-                            <div id="divButtonsCadastro" class="loginDivs">
-                                <input id="buttonSalvarCadastro" class="buttons" type="submit" value="Cadastrar">
-                                <button id="fecharCadastro" class="buttons">Cancelar</button>
-                            </div>
-                        </form>                        
-                    </dialog>
-                    <!-- -->
-                </div>
-                <div id="divEsqueci" class="loginDivs">
-                    <a id="aEsqueci" href="#">Esqueci minha senha</a>
-                </div>
-            </form>            
+                    <button id="buttonEntrar" class="buttons" type="submit" disabled="true">Entrar</button>
+                    <button id="buttonCadastrar" class="buttons" type="button">Cadastrar</button>
+                </div>                
+            </form>
+            <div id="divEsqueci" class="loginDivs">
+                <button id="buttonEsqueci" type="button" disabled="true">Esqueci minha senha</button>
+            </div>            
         </div>
+        <!-- -->
+        <dialog id="formCadastro">
+            <h4 id="tituloCadastro">Cadastro</h4>
+            <form id="formCadastrar">
+                <div id="divEmailCadastro" class="loginDivs">
+                    <label class="label" for="emailCadastro">Email</label>
+                    <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required onchange="validateCadastroFields()">
+                </div>
+                <div id="divSenhaCadastro" class="loginDivs">
+                    <label class="label" for="senhaCadastro">Senha</label>
+                    <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required onchange="validateCadastroFields()">
+                </div>
+                <div id="divConfirmacaoSenha" class="loginDivs">
+                    <label class="label" for="confirmacao">Confirme sua Senha</label>
+                    <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required onchange="validateCadastroFields()">
+                </div>
+                <div id="divButtonsCadastro" class="loginDivs">
+                    <button id="buttonSalvarCadastro" class="buttons" type="submit" disabled="true">Cadastrar</button>
+                    <button id="fecharCadastro" class="buttons">Cancelar</button>
+                </div>
+            </form>                        
+        </dialog>
+        <!-- -->       
         <div id="divLoginGoogle" class="loginDivs">
             <input type="image" src="assets/images/buttonGoogle.svg" id="buttonLoginGoogle" class="buttons" alt="Fazer login com sua conta Google">
         </div>

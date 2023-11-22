@@ -22,6 +22,7 @@ buttonCloseCadastro.onclick = function() {
 
 document.getElementById('buttonCadastrar').addEventListener('click', function() {
     modalCadastro.classList.add('show'); // Adiciona a classe show ao abrir
+    transferirValoresDoLoginParaCadastro();
 });
 
 buttonCloseCadastro.onclick = function() {
@@ -34,4 +35,67 @@ document.getElementById('fecharCadastro').addEventListener('click', function() {
 
 document.getElementById('buttonCadastrar').addEventListener('click', function() {
     modalCadastro.showModal();
+    transferirValoresDoLoginParaCadastro();
 });
+
+// Validação de Email e Senha
+
+function validateFields() {
+    const emailValid = isEmailValid();
+    const passwordValid = isPasswordValid();
+    document.getElementById("buttonEsqueci").disabled = !emailValid;    
+    document.getElementById("buttonEntrar").disabled = !emailValid || !passwordValid;
+}
+
+function isEmailValid() {
+    const email = document.getElementById("campoEmail").value;
+    if (!email) {
+        return false;
+    }
+    return validateEmail(email);
+}
+
+function isPasswordValid() {
+    const password = document.getElementById("campoSenha").value;
+    return password.length > 0;
+}
+
+function validateEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+}
+
+// Validação de Email, Senha e Confirmação da Senha de Cadastro
+function validateCadastroFields() {
+    const emailValid = isEmailCadastroValid();
+    const passwordValid = isPasswordCadastroValid();
+    const confirmPasswordValid = isConfirmPasswordValid();
+    document.getElementById("buttonSalvarCadastro").disabled = !emailValid || !passwordValid || !confirmPasswordValid;
+}
+
+function isEmailCadastroValid() {
+    const emailCadastro = document.getElementById("campoEmailCadastro").value;
+    if (!emailCadastro) {
+        return false;
+    }
+    return validateEmail(emailCadastro);
+}
+
+function isPasswordCadastroValid() {
+    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
+    return passwordCadastro.length > 0;
+}
+
+function isConfirmPasswordValid() {
+    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
+    const confirmPassword = document.getElementById("campoConfirmacaoSenha").value;
+    return passwordCadastro === confirmPassword;
+}
+
+// Função para transferir valores do login para o cadastro
+function transferirValoresDoLoginParaCadastro() {
+    const emailLogin = document.getElementById("campoEmail").value;
+    const senhaLogin = document.getElementById("campoSenha").value;
+
+    document.getElementById("campoEmailCadastro").value = emailLogin;
+    document.getElementById("campoSenhaCadastro").value = senhaLogin;
+}
