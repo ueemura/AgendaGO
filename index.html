@@ -14,13 +14,18 @@
         </div>
         <div id="divLogin" class="loginDivs">
             <form id="formEntrar">
+                <div id="divError" class="loginDivs">
+                    <p id="pEmailRequired">Email Obrigatório!</p>
+                    <p id="pInvalidEmail">Email Inválido!</p>
+                    <p id="pInvalidPassword">Senha Inválida!</p>
+                </div>
                 <div id="divEmail" class="loginDivs">
                     <label class="label" for="email">Email</label>
-                    <input class="campo" type="email" name="email" id="campoEmail" placeholder="usuario@gmail.com" required onchange="validateFields()">
+                    <input class="campo" type="email" name="email" id="campoEmail" placeholder="usuario@gmail.com" required onchange="onChangeEmail()">
                 </div>
                 <div id="divSenha" class="loginDivs">
                     <label class="label" for="senha">Senha</label>
-                    <input class="campo" type="password" name="senha" id="campoSenha" placeholder="************" required onchange="validateFields()">
+                    <input class="campo" type="password" name="senha" id="campoSenha" placeholder="************" required onchange="onChangePassword()">
                 </div>
                 <div id="divButtons" class="loginDivs">
                     <button id="buttonEntrar" class="buttons" type="submit" disabled="true">Entrar</button>
@@ -35,17 +40,23 @@
         <dialog id="formCadastro">
             <h4 id="tituloCadastro">Cadastro</h4>
             <form id="formCadastrar">
+                <div id="divErrorCadastro" class="loginDivs">
+                    <p id="pEmailRequiredCadastro">Email Obrigatório!</p>
+                    <p id="pInvalidEmailCadastro">Email Inválido!</p>
+                    <p id="pInvalidPasswordCadastro">Senha Inválida!</p>
+                    <p id="pDissimilarPasswordCadastro">As Senhas Inseridas Não Conferem!</p>
+                </div>
                 <div id="divEmailCadastro" class="loginDivs">
                     <label class="label" for="emailCadastro">Email</label>
-                    <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required onchange="validateCadastroFields()">
+                    <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required onchange="onChangeEmailCadastro()">
                 </div>
                 <div id="divSenhaCadastro" class="loginDivs">
                     <label class="label" for="senhaCadastro">Senha</label>
-                    <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required onchange="validateCadastroFields()">
+                    <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required onchange="onChangePasswordCadastro()">
                 </div>
                 <div id="divConfirmacaoSenha" class="loginDivs">
                     <label class="label" for="confirmacao">Confirme sua Senha</label>
-                    <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required onchange="validateCadastroFields()">
+                    <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required onchange="onChangeConfirmPasswordCadastro()">
                 </div>
                 <div id="divButtonsCadastro" class="loginDivs">
                     <button id="buttonSalvarCadastro" class="buttons" type="submit" disabled="true">Cadastrar</button>

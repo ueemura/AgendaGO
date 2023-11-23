@@ -40,11 +40,14 @@ document.getElementById('buttonCadastrar').addEventListener('click', function() 
 
 // Validação de Email e Senha
 
-function validateFields() {
-    const emailValid = isEmailValid();
-    const passwordValid = isPasswordValid();
-    document.getElementById("buttonEsqueci").disabled = !emailValid;    
-    document.getElementById("buttonEntrar").disabled = !emailValid || !passwordValid;
+function onChangeEmail() {
+    toggleButtonsDisable();
+    toggleEmailErrors();
+}
+
+function onChangePassword() {
+    toggleButtonsDisable();
+    togglePasswordErrors();
 }
 
 function isEmailValid() {
@@ -53,6 +56,37 @@ function isEmailValid() {
         return false;
     }
     return validateEmail(email);
+}
+
+function toggleEmailErrors() {
+    const email = document.getElementById("campoEmail").value;
+    if (!email) {
+        document.getElementById("pEmailRequired").style.color = "red";
+    } else {
+        document.getElementById("pEmailRequired").style.color = "transparent";
+    }
+
+    if (validateEmail(email)) {
+        document.getElementById("pInvalidEmail").style.color = "transparent";
+    } else {
+        document.getElementById("pInvalidEmail").style.color = "red";
+    }
+}
+
+function togglePasswordErrors() {
+    const password = document.getElementById("campoSenha").value;
+    if (!password) {
+        document.getElementById("pInvalidPassword").style.color = "red";
+    } else {
+        document.getElementById("pInvalidPassword").style.color = "transparent";
+    }
+}
+
+function toggleButtonsDisable() {
+    const emailValid = isEmailValid();
+    const passwordValid = isPasswordValid();
+    document.getElementById("buttonEsqueci").disabled = !emailValid;    
+    document.getElementById("buttonEntrar").disabled = !emailValid || !passwordValid;
 }
 
 function isPasswordValid() {
@@ -65,11 +99,19 @@ function validateEmail(email) {
 }
 
 // Validação de Email, Senha e Confirmação da Senha de Cadastro
-function validateCadastroFields() {
-    const emailValid = isEmailCadastroValid();
-    const passwordValid = isPasswordCadastroValid();
-    const confirmPasswordValid = isConfirmPasswordValid();
-    document.getElementById("buttonSalvarCadastro").disabled = !emailValid || !passwordValid || !confirmPasswordValid;
+function onChangeEmailCadastro() {
+    toggleButtonsDisableCadastro();
+    toggleEmailErrorsCadastro();
+}
+
+function onChangePasswordCadastro() {
+    toggleButtonsDisableCadastro();
+    togglePasswordErrorsCadastro();
+}
+
+function onChangeConfirmPasswordCadastro() {
+    toggleButtonsDisableCadastro();
+    toggleConfirmPasswordErrorsCadastro();
 }
 
 function isEmailCadastroValid() {
@@ -78,6 +120,47 @@ function isEmailCadastroValid() {
         return false;
     }
     return validateEmail(emailCadastro);
+}
+
+function toggleEmailErrorsCadastro() {
+    const emailCadastro = document.getElementById("campoEmailCadastro").value;
+    if (!emailCadastro) {
+        document.getElementById("pEmailRequiredCadastro").style.color = "red";
+    } else {
+        document.getElementById("pEmailRequiredCadastro").style.color = "transparent";
+    }
+
+    if (validateEmail(emailCadastro)) {
+        document.getElementById("pInvalidEmailCadastro").style.color = "transparent";
+    } else {
+        document.getElementById("pInvalidEmailCadastro").style.color = "red";
+    }
+}
+
+function togglePasswordErrorsCadastro () {
+    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
+    if (!passwordCadastro) {
+        document.getElementById("pInvalidPasswordCadastro").style.color = "red";
+    } else {
+        document.getElementById("pInvalidPasswordCadastro").style.color = "transparent";
+    }
+}
+
+function toggleConfirmPasswordErrorsCadastro() {
+    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
+    const confirmPassword = document.getElementById("campoConfirmacaoSenha").value;
+    if (passwordCadastro === confirmPassword) {
+        document.getElementById("pDissimilarPasswordCadastro").style.color = "transparent";
+    } else {
+        document.getElementById("pDissimilarPasswordCadastro").style.color = "red";
+    }
+}
+
+function toggleButtonsDisableCadastro() {    
+    const emailValid = isEmailCadastroValid();
+    const passwordValid = isPasswordCadastroValid();
+    const confirmPasswordValid = isConfirmPasswordValid();
+    document.getElementById("buttonSalvarCadastro").disabled = !emailValid || !passwordValid || !confirmPasswordValid;
 }
 
 function isPasswordCadastroValid() {
