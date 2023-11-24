@@ -51,7 +51,7 @@ function onChangePassword() {
 }
 
 function isEmailValid() {
-    const email = document.getElementById("campoEmail").value;
+    const email = formEntrar.email().value;
     if (!email) {
         return false;
     }
@@ -59,43 +59,40 @@ function isEmailValid() {
 }
 
 function toggleEmailErrors() {
-    const email = document.getElementById("campoEmail").value;
-    if (!email) {
-        document.getElementById("pEmailRequired").style.color = "red";
-    } else {
-        document.getElementById("pEmailRequired").style.color = "transparent";
-    }
-
-    if (validateEmail(email)) {
-        document.getElementById("pInvalidEmail").style.color = "transparent";
-    } else {
-        document.getElementById("pInvalidEmail").style.color = "red";
-    }
+    const email = formEntrar.email().value;
+    formEntrar.emailRequiredError().style.color = email ? "transparent" : "red";
+    formEntrar.emailInvalidError().style.color = validateEmail(email) ? "transparent" : "red";
 }
 
 function togglePasswordErrors() {
-    const password = document.getElementById("campoSenha").value;
-    if (!password) {
-        document.getElementById("pInvalidPassword").style.color = "red";
-    } else {
-        document.getElementById("pInvalidPassword").style.color = "transparent";
-    }
+    const password = formEntrar.password().value;
+    formEntrar.passwordRequiredError().style.color = !password ? "red" : "transparent";
 }
 
 function toggleButtonsDisable() {
     const emailValid = isEmailValid();
     const passwordValid = isPasswordValid();
-    document.getElementById("buttonEsqueci").disabled = !emailValid;    
-    document.getElementById("buttonEntrar").disabled = !emailValid || !passwordValid;
+    formEntrar.recoverPassword().disabled = !emailValid;    
+    formEntrar.loginButton().disabled = !emailValid || !passwordValid;
 }
 
 function isPasswordValid() {
-    const password = document.getElementById("campoSenha").value;
+    const password = formEntrar.password().value;
     return password.length > 0;
 }
 
 function validateEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
+}
+
+const formEntrar = {
+    email: () => document.getElementById("campoEmail"),
+    emailInvalidError: () => document.getElementById("pInvalidEmail"),
+    emailRequiredError: () => document.getElementById("pEmailRequired"), 
+    loginButton: () => document.getElementById("buttonEntrar"),
+    password: () => document.getElementById("campoSenha"),
+    passwordRequiredError: () => document.getElementById("pInvalidPassword"),
+    recoverPassword: () => document.getElementById("buttonEsqueci")
 }
 
 // Validação de Email, Senha e Confirmação da Senha de Cadastro
@@ -107,6 +104,7 @@ function onChangeEmailCadastro() {
 function onChangePasswordCadastro() {
     toggleButtonsDisableCadastro();
     togglePasswordErrorsCadastro();
+    toggleConfirmPasswordErrorsCadastro();
 }
 
 function onChangeConfirmPasswordCadastro() {
@@ -115,70 +113,61 @@ function onChangeConfirmPasswordCadastro() {
 }
 
 function isEmailCadastroValid() {
-    const emailCadastro = document.getElementById("campoEmailCadastro").value;
-    if (!emailCadastro) {
-        return false;
-    }
-    return validateEmail(emailCadastro);
+    const emailCadastro = formCadastrar.email().value;
+    return !emailCadastro ? false : validateEmail(emailCadastro);
 }
 
 function toggleEmailErrorsCadastro() {
-    const emailCadastro = document.getElementById("campoEmailCadastro").value;
-    if (!emailCadastro) {
-        document.getElementById("pEmailRequiredCadastro").style.color = "red";
-    } else {
-        document.getElementById("pEmailRequiredCadastro").style.color = "transparent";
-    }
-
-    if (validateEmail(emailCadastro)) {
-        document.getElementById("pInvalidEmailCadastro").style.color = "transparent";
-    } else {
-        document.getElementById("pInvalidEmailCadastro").style.color = "red";
-    }
+    const emailCadastro = formCadastrar.email().value;
+    formCadastrar.emailRequiredError().style.color = !emailCadastro ? "red" : "transparent";
+    formCadastrar.emailInvalidError().style.color = validateEmail(emailCadastro) ? "transparent" : "red";
 }
 
 function togglePasswordErrorsCadastro () {
-    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
-    if (!passwordCadastro) {
-        document.getElementById("pInvalidPasswordCadastro").style.color = "red";
-    } else {
-        document.getElementById("pInvalidPasswordCadastro").style.color = "transparent";
-    }
+    const passwordCadastro = formCadastrar.password().value;
+    formCadastrar.passwordRequiredError().style.color = !passwordCadastro ? "red" : "transparent";
 }
 
 function toggleConfirmPasswordErrorsCadastro() {
-    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
-    const confirmPassword = document.getElementById("campoConfirmacaoSenha").value;
-    if (passwordCadastro === confirmPassword) {
-        document.getElementById("pDissimilarPasswordCadastro").style.color = "transparent";
-    } else {
-        document.getElementById("pDissimilarPasswordCadastro").style.color = "red";
-    }
+    const passwordCadastro = formCadastrar.password().value;
+    const confirmPassword = formCadastrar.confirmPassword().value;
+    formCadastrar.dissimilarPassword().style.color = (passwordCadastro === confirmPassword) ? "transparent" : "red";    
 }
 
 function toggleButtonsDisableCadastro() {    
     const emailValid = isEmailCadastroValid();
     const passwordValid = isPasswordCadastroValid();
     const confirmPasswordValid = isConfirmPasswordValid();
-    document.getElementById("buttonSalvarCadastro").disabled = !emailValid || !passwordValid || !confirmPasswordValid;
+    formCadastrar.registerButton().disabled = !emailValid || !passwordValid || !confirmPasswordValid;
 }
 
 function isPasswordCadastroValid() {
-    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
+    const passwordCadastro = formCadastrar.password().value;
     return passwordCadastro.length > 0;
 }
 
 function isConfirmPasswordValid() {
-    const passwordCadastro = document.getElementById("campoSenhaCadastro").value;
-    const confirmPassword = document.getElementById("campoConfirmacaoSenha").value;
+    const passwordCadastro = formCadastrar.password().value;
+    const confirmPassword = formCadastrar.confirmPassword().value;
     return passwordCadastro === confirmPassword;
+}
+
+const formCadastrar = {
+    email: () => document.getElementById("campoEmailCadastro"),
+    emailInvalidError: () => document.getElementById("pInvalidEmailCadastro"),
+    emailRequiredError: () => document.getElementById("pEmailRequiredCadastro"),
+    registerButton: () => document.getElementById("buttonSalvarCadastro"),
+    password: () => document.getElementById("campoSenhaCadastro"),
+    passwordRequiredError: () => document.getElementById("pInvalidPasswordCadastro"),
+    confirmPassword: () => document.getElementById("campoConfirmacaoSenha"),
+    dissimilarPassword: () => document.getElementById("pDissimilarPasswordCadastro")
 }
 
 // Função para transferir valores do login para o cadastro
 function transferirValoresDoLoginParaCadastro() {
-    const emailLogin = document.getElementById("campoEmail").value;
-    const senhaLogin = document.getElementById("campoSenha").value;
+    const emailLogin = formEntrar.email().value;
+    const senhaLogin = formEntrar.password().value;
 
-    document.getElementById("campoEmailCadastro").value = emailLogin;
-    document.getElementById("campoSenhaCadastro").value = senhaLogin;
+    formCadastrar.email().value = emailLogin;
+    formCadastrar.password().value = senhaLogin;
 }
