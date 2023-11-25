@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/images/icon.svg">
-    <title>Agenda GO®</title>
-</head>
-<body>
-    <div id="pageWrapperMain" class="pageWrapper">
-        <div id="main">
-            <div class="mainLineDivs">
-                <div id="mainCalendar" class="mainDivs">
-                    <input type="image" src="assets/images/calendar.svg" id="buttonCalendar" class="mainButtons" alt="Calendar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="assets/images/icon.svg">
+        <title>Agenda GO®</title>
+    </head>
+    <body>
+        <div id="pageWrapperMain" class="pageWrapper">
+            <div id="main">
+                <div class="mainLineDivs">
+                    <div id="mainCalendar" class="mainDivs">
+                        <input type="image" src="assets/images/calendar.svg" id="buttonCalendar" class="mainButtons" alt="Calendar">
+                    </div>
+                    <div id="mainAnotacoes" class="mainDivs">
+                        <input type="image" src="assets/images/anotacoes.svg" id="buttonAnotacoes" class="mainButtons" alt="Anotacoes">
+                    </div>
                 </div>
-                <div id="mainAnotacoes" class="mainDivs">
-                    <input type="image" src="assets/images/anotacoes.svg" id="buttonAnotacoes" class="mainButtons" alt="Anotacoes">
+                <div class="mainLineDivs">
+                    <div id="mainTempo" class="mainDivs">
+                        <input type="image" src="assets/images/tempo.svg" id="buttonTempo" class="mainButtons" alt="Tempo">
+                    </div>
+                    <div id="mainTarefas" class="mainDivs">
+                        <input type="image" src="assets/images/tarefas.svg" id="buttonTarefas" class="mainButtons" alt="Tarefas">
+                    </div>
+                </div>
+                <div class="mainLineDivs">
+                    <div id="mainArquivos" class="mainDivs">
+                        <input type="image" src="assets/images/arquivos.svg" id="buttonArquivos" class="mainButtons" alt="Arquivos">
+                    </div>
+                    <div id="mainTime" class="mainDivs">
+                        <input type="image" src="assets/images/time.svg" id="buttonTime" class="mainButtons" alt="Time">
+                    </div>
+                </div>
+                <div class="mainLineDivs">
+                    <div id="mainWeb" class="mainDivs">
+                        <input type="image" src="assets/images/web.svg" id="buttonWeb" class="mainButtons" alt="Web">
+                    </div>
+                    <div id="mainGoogle" class="mainDivs">
+                        <input type="image" src="assets/images/google.svg" id="buttonGoogle" class="mainButtons" alt="Google">
+                    </div>
+                </div>            
+            </div>
+            <div id="footer">
+                <div id="divVoltar">
+                    <input type="image" src="assets/images/voltar.svg" id="buttonVoltar" alt="Voltar">
+                </div>
+                <div id="divShare">
+                    <input type="image" src="assets/images/share.svg" alt="Compartilhar">
+                </div>
+                <div id="divMuteSound" class="divMuteSoundMain">
+                    <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
+                </div>
+                <div id="divLogout">
+                    <input type="image" src="assets/images/logout.svg" id="buttonSair" alt="Sair" onclick="logout()">
                 </div>
             </div>
-            <div class="mainLineDivs">
-                <div id="mainTempo" class="mainDivs">
-                    <input type="image" src="assets/images/tempo.svg" id="buttonTempo" class="mainButtons" alt="Tempo">
-                </div>
-                <div id="mainTarefas" class="mainDivs">
-                    <input type="image" src="assets/images/tarefas.svg" id="buttonTarefas" class="mainButtons" alt="Tarefas">
-                </div>
-            </div>
-            <div class="mainLineDivs">
-                <div id="mainArquivos" class="mainDivs">
-                    <input type="image" src="assets/images/arquivos.svg" id="buttonArquivos" class="mainButtons" alt="Arquivos">
-                </div>
-                <div id="mainTime" class="mainDivs">
-                    <input type="image" src="assets/images/time.svg" id="buttonTime" class="mainButtons" alt="Time">
-                </div>
-            </div>
-            <div class="mainLineDivs">
-                <div id="mainWeb" class="mainDivs">
-                    <input type="image" src="assets/images/web.svg" id="buttonWeb" class="mainButtons" alt="Web">
-                </div>
-                <div id="mainGoogle" class="mainDivs">
-                    <input type="image" src="assets/images/google.svg" id="buttonGoogle" class="mainButtons" alt="Google">
-                </div>
-            </div>            
-        </div>
-        <div id="footer">
-            <div id="divVoltar">
-                <input type="image" src="assets/images/voltar.svg" id="buttonVoltar" alt="Voltar">
-            </div>
-            <div id="divShare">
-                <input type="image" src="assets/images/share.svg" alt="Compartilhar">
-            </div>
-            <div id="divMuteSound" class="divMuteSoundMain">
-                <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
-            </div>
-            <div id="divLogout">
-                <input type="image" src="assets/images/logout.svg" id="buttonSair" alt="Sair">
-            </div>
-        </div>
-    </div>
+        </div>    
+    </body>
     <script src="mainScript.js"></script>
     <script src="soundScript.js"></script>
-</body>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+    <script src="firebaseInit.js"></script>
+    <script src="logout.js"></script>
 </html>

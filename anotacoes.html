@@ -58,11 +58,14 @@
                 <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
             </div>
             <div id="divLogout">
-                <input type="image" src="assets/images/logout.svg" id="buttonSair" alt="Sair">
+                <input type="image" src="assets/images/logout.svg" id="buttonSair" alt="Sair" onclick="logout()">
             </div>
         </div>
     </div>
     <script src="anotacoesScript.js"></script>
-    <script src="soundScript.js"></script>
+    <script src="soundScript.js"></script><script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+    <script src="firebaseInit.js"></script>
+    <script src="logout.js"></script>
 </body>
 </html>

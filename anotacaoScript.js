@@ -2,10 +2,6 @@ document.getElementById('buttonVoltar').addEventListener('click', function() {
     window.location.href = 'anotacoes.html';
 });
 
-document.getElementById('buttonSair').addEventListener('click', function() {
-    window.location.href = 'index.html';
-});
-
 document.getElementById('formAnotacao').addEventListener('submit', function(event) {
     event.preventDefault();
     //Obtem o texto da anotação
