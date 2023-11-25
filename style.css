@@ -188,7 +188,8 @@ body {
 #formCadastro.show, #setarTituloNovoDoc.show {
     opacity: 1; /* Torna o dialog visível */
     transform: scale(1); /* Retorna ao tamanho normal */
-    z
+    border-top: 0;
+    border-bottom: 0;
 }
 
 #formCadastro {
@@ -214,11 +215,6 @@ body {
 .mainLineDivs {
     display: flex;
     justify-content: space-evenly;
-}
-
-.mainDivs {
-    height: ;
-    width ;
 }
 
 .mainButtons {
