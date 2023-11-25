@@ -1,5 +1,4 @@
 // Validação de Email e Senha
-
 function onChangeEmail() {
     toggleButtonsDisable();
     toggleEmailErrors();
@@ -218,4 +217,25 @@ function transferirValoresDoLoginParaCadastro() {
 
     formCadastrar.email().value = emailLogin;
     formCadastrar.password().value = senhaLogin;
+}
+
+function loginWithGoogle() {
+    showLoading();
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+            // O usuário foi autenticado com sucesso
+            const user = result.user;
+            console.log("Usuário autenticado com sucesso:", user);
+            hideLoading();
+            window.location.href = "main.html";
+        })
+        .catch((error) => {
+            // Houve um erro durante a autenticação
+            console.error("Erro ao autenticar com o Google:", error);
+            hideLoading();
+            alert(getErrorMessage(error));
+        });
 }

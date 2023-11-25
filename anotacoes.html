@@ -1,71 +1,73 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/images/icon.svg">
-    <title>Agenda GO®</title>
-</head>
-<body>
-    <div id="pageWrapperAnotacoes" class="pageWrapper">
-        <h1 id="tituloAnotacoes">ANOTAÇÕES</h1>
-        <div id="anotacoes">
-            <div class="anotacoesLineDivs">
-                <div id="anotacaoOne" class="anotacoesDivs">
-                    <input type="image" src="assets/images/anotacao.svg" id="buttonAnotacaoOne" class="anotacoesButtons" alt="Doc 01">
-                    <a href="anotacao.html" class="aAnotacoes">DOC 01</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="assets/images/icon.svg">
+        <title>Agenda GO®</title>
+    </head>
+    <body>
+        <div id="pageWrapperAnotacoes" class="pageWrapper">
+            <h1 id="tituloAnotacoes">ANOTAÇÕES</h1>
+            <div id="anotacoes">
+                <div class="anotacoesLineDivs">
+                    <div id="anotacaoOne" class="anotacoesDivs">
+                        <input type="image" src="assets/images/anotacao.svg" id="buttonAnotacaoOne" class="anotacoesButtons" alt="Doc 01">
+                        <a href="anotacao.html" class="aAnotacoes">DOC 01</a>
+                    </div>
+                    <div id="anotacaoTwo" class="anotacoesDivs">
+                        <input type="image" src="assets/images/anotacao.svg" id="buttonAnotacaoTwo" class="anotacoesButtons" alt="Doc 02">
+                        <a href="#" class="aAnotacoes">DOC 02</a>
+                    </div>
                 </div>
-                <div id="anotacaoTwo" class="anotacoesDivs">
-                    <input type="image" src="assets/images/anotacao.svg" id="buttonAnotacaoTwo" class="anotacoesButtons" alt="Doc 02">
-                    <a href="#" class="aAnotacoes">DOC 02</a>
+                <div class="anotacoesLineDivs">
+                    <div id="anotacaoThree" class="anotacoesDivs">
+                        <input type="image" src="assets/images/anotacao.svg" id="buttonAnotacaoThree" class="anotacoesButtons" alt="Doc 03">
+                        <a href="#" class="aAnotacoes">DOC 03</a>
+                    </div>
+                    <div id="anotacaoPlus" class="anotacoesDivs">
+                        <input type="image" src="assets/images/anotacaoPlus.svg" id="buttonAnotacaoPlus" class="anotacoesButtons" alt="Novo Doc">
+                        <a href="#" id="aAnotacaoPlus" class="aAnotacoes">NOVO DOC</a>
+                    </div>
+                    <!-- -->
+                    <dialog id="setarTituloNovoDoc">
+                        <h4 id="tituloDaNovaAnotacao">Nova Anotação</h4>
+                        <form>
+                            <div id="divTituloDaNovaAnotacao" class="loginDivs">
+                                <label class="label" for="tituloDaNovaAnotacao">Escolha o Título da Nova Anotação</label>
+                                <input class="campo" type="text" name="tituloDaNovaAnotacao" id="campoTituloDaNovaAnotacao" placeholder="Novo Documento" required>
+                            </div>
+                            <div id="divButtonsNovaAnotacao" class="loginDivs">
+                                <input id="buttonConfirmarTituloNovoDoc" class="buttons" type="submit" value="Ok">
+                                <button id="fecharTituloNovoDoc" class="buttons">Cancelar</button>
+                            </div>
+                        </form>                    
+                    </dialog>
+                    <!-- -->
                 </div>
             </div>
-            <div class="anotacoesLineDivs">
-                <div id="anotacaoThree" class="anotacoesDivs">
-                    <input type="image" src="assets/images/anotacao.svg" id="buttonAnotacaoThree" class="anotacoesButtons" alt="Doc 03">
-                    <a href="#" class="aAnotacoes">DOC 03</a>
+            <div id="footer" class="anotacoesFooter">
+                <div id="divVoltar">
+                    <input type="image" src="assets/images/voltar.svg" id="buttonVoltar" alt="Voltar">
                 </div>
-                <div id="anotacaoPlus" class="anotacoesDivs">
-                    <input type="image" src="assets/images/anotacaoPlus.svg" id="buttonAnotacaoPlus" class="anotacoesButtons" alt="Novo Doc">
-                    <a href="#" id="aAnotacaoPlus" class="aAnotacoes">NOVO DOC</a>
+                <div id="divShare">
+                    <input type="image" src="assets/images/share.svg" alt="Compartilhar">
                 </div>
-                <!-- -->
-                <dialog id="setarTituloNovoDoc">
-                    <h4 id="tituloDaNovaAnotacao">Nova Anotação</h4>
-                    <form>
-                        <div id="divTituloDaNovaAnotacao" class="loginDivs">
-                            <label class="label" for="tituloDaNovaAnotacao">Escolha o Título da Nova Anotação</label>
-                            <input class="campo" type="text" name="tituloDaNovaAnotacao" id="campoTituloDaNovaAnotacao" placeholder="Novo Documento" required>
-                        </div>
-                        <div id="divButtonsNovaAnotacao" class="loginDivs">
-                            <input id="buttonConfirmarTituloNovoDoc" class="buttons" type="submit" value="Ok">
-                            <button id="fecharTituloNovoDoc" class="buttons">Cancelar</button>
-                        </div>
-                    </form>                    
-                </dialog>
-                <!-- -->
+                <div id="divMuteSound" class="divMuteSoundAnotacoes">
+                    <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
+                </div>
+                <div id="divLogout">
+                    <input type="image" src="assets/images/logout.svg" id="buttonSair" alt="Sair" onclick="logout()">
+                </div>
             </div>
-        </div>
-        <div id="footer" class="anotacoesFooter">
-            <div id="divVoltar">
-                <input type="image" src="assets/images/voltar.svg" id="buttonVoltar" alt="Voltar">
-            </div>
-            <div id="divShare">
-                <input type="image" src="assets/images/share.svg" alt="Compartilhar">
-            </div>
-            <div id="divMuteSound" class="divMuteSoundAnotacoes">
-                <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
-            </div>
-            <div id="divLogout">
-                <input type="image" src="assets/images/logout.svg" id="buttonSair" alt="Sair" onclick="logout()">
-            </div>
-        </div>
-    </div>
-    <script src="anotacoesScript.js"></script>
-    <script src="soundScript.js"></script><script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+        </div>    
+    </body>
+    <script src="soundScript.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
     <script src="firebaseInit.js"></script>
+    <script src="auth-guard.js"></script>    
     <script src="logout.js"></script>
-</body>
+    <script src="anotacoesScript.js"></script>
 </html>
