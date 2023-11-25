@@ -1,78 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=0.9">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="assets/images/icon.svg">
-    <title>Agenda GO®</title>
-</head>
-<body>
-    <div id="pageWrapperLogin">
-        <div id="divLogo" class="loginDivs">
-            <img id="imgLogo" src="assets/images/logo.svg" alt="logo" srcset="">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.9">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="assets/images/icon.svg">
+        <title>Agenda GO®</title>
+    </head>
+    <body>
+        <div id="pageWrapperLogin">        
+            <div id="divLogo" class="loginDivs">
+                <img id="imgLogo" src="assets/images/logo.svg" alt="logo" srcset="">
+            </div>
+            <div id="divLogin" class="loginDivs">
+                <form id="formEntrar">
+                    <div id="divError" class="loginDivs">
+                        <p id="pEmailRequired">Email Obrigatório!</p>
+                        <p id="pInvalidEmail">Email Inválido!</p>
+                        <p id="pInvalidPassword">Senha Inválida!</p>
+                    </div>
+                    <div id="divEmail" class="loginDivs">
+                        <label class="label" for="email">Email</label>
+                        <input class="campo" type="email" name="email" id="campoEmail" placeholder="usuario@gmail.com" required onchange="onChangeEmail()">
+                    </div>
+                    <div id="divSenha" class="loginDivs">
+                        <label class="label" for="senha">Senha</label>
+                        <input class="campo" type="password" name="senha" id="campoSenha" placeholder="************" required onchange="onChangePassword()">
+                    </div>
+                    <div id="divButtons" class="loginDivs">
+                        <button id="buttonEntrar" class="buttons" type="button" disabled="true" onclick="login()">Entrar</button>
+                        <button id="buttonCadastrar" class="buttons" type="button">Cadastrar</button>
+                    </div>                
+                </form>
+                <div id="divEsqueci" class="loginDivs">
+                    <button id="buttonEsqueci" type="button" disabled="true" onclick="recoverPassword()">Esqueci minha senha</button>
+                </div>            
+            </div>
+            <!-- -->
+            <dialog id="formCadastro">
+                <h4 id="tituloCadastro">Cadastro</h4>
+                <form id="formCadastrar">
+                    <div id="divErrorCadastro" class="loginDivs">
+                        <p id="pEmailRequiredCadastro">Email Obrigatório!</p>
+                        <p id="pInvalidEmailCadastro">Email Inválido!</p>
+                        <p id="pInvalidPasswordCadastro">Senha Inválida!</p>
+                        <p id="pMinLengthError">A Senha deve ter ao menos 6 caracteres!</p>
+                        <p id="pDissimilarPasswordCadastro">As Senhas Inseridas Não Conferem!</p>
+                    </div>
+                    <div id="divEmailCadastro" class="loginDivs">
+                        <label class="label" for="emailCadastro">Email</label>
+                        <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required onchange="onChangeEmailCadastro()">
+                    </div>
+                    <div id="divSenhaCadastro" class="loginDivs">
+                        <label class="label" for="senhaCadastro">Senha</label>
+                        <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required onchange="onChangePasswordCadastro()">
+                    </div>
+                    <div id="divConfirmacaoSenha" class="loginDivs">
+                        <label class="label" for="confirmacao">Confirmar Senha</label>
+                        <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required onchange="onChangeConfirmPasswordCadastro()">
+                    </div>
+                    <div id="divButtonsCadastro" class="loginDivs">
+                        <button id="buttonSalvarCadastro" class="buttons" type="button" disabled="true" onclick="register()">Cadastrar</button>
+                        <button id="fecharCadastro" class="buttons">Cancelar</button>
+                    </div>
+                </form>                        
+            </dialog>
+            <!-- -->       
+            <div id="divLoginGoogle" class="loginDivs">
+                <input type="image" src="assets/images/buttonGoogle.svg" id="buttonLoginGoogle" class="buttons" alt="Fazer login com sua conta Google" onclick="">
+            </div>
+            <div id="divMuteSound">
+                <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
+            </div>
         </div>
-        <div id="divLogin" class="loginDivs">
-            <form id="formEntrar">
-                <div id="divError" class="loginDivs">
-                    <p id="pEmailRequired">Email Obrigatório!</p>
-                    <p id="pInvalidEmail">Email Inválido!</p>
-                    <p id="pInvalidPassword">Senha Inválida!</p>
-                </div>
-                <div id="divEmail" class="loginDivs">
-                    <label class="label" for="email">Email</label>
-                    <input class="campo" type="email" name="email" id="campoEmail" placeholder="usuario@gmail.com" required onchange="onChangeEmail()">
-                </div>
-                <div id="divSenha" class="loginDivs">
-                    <label class="label" for="senha">Senha</label>
-                    <input class="campo" type="password" name="senha" id="campoSenha" placeholder="************" required onchange="onChangePassword()">
-                </div>
-                <div id="divButtons" class="loginDivs">
-                    <button id="buttonEntrar" class="buttons" type="submit" disabled="true">Entrar</button>
-                    <button id="buttonCadastrar" class="buttons" type="button">Cadastrar</button>
-                </div>                
-            </form>
-            <div id="divEsqueci" class="loginDivs">
-                <button id="buttonEsqueci" type="button" disabled="true">Esqueci minha senha</button>
-            </div>            
-        </div>
-        <!-- -->
-        <dialog id="formCadastro">
-            <h4 id="tituloCadastro">Cadastro</h4>
-            <form id="formCadastrar">
-                <div id="divErrorCadastro" class="loginDivs">
-                    <p id="pEmailRequiredCadastro">Email Obrigatório!</p>
-                    <p id="pInvalidEmailCadastro">Email Inválido!</p>
-                    <p id="pInvalidPasswordCadastro">Senha Inválida!</p>
-                    <p id="pDissimilarPasswordCadastro">As Senhas Inseridas Não Conferem!</p>
-                </div>
-                <div id="divEmailCadastro" class="loginDivs">
-                    <label class="label" for="emailCadastro">Email</label>
-                    <input class="campo" type="email" name="emailCadastro" id="campoEmailCadastro" placeholder="usuario@gmail.com" required onchange="onChangeEmailCadastro()">
-                </div>
-                <div id="divSenhaCadastro" class="loginDivs">
-                    <label class="label" for="senhaCadastro">Senha</label>
-                    <input class="campo" type="password" name="senhaCadastro" id="campoSenhaCadastro" placeholder="************" required onchange="onChangePasswordCadastro()">
-                </div>
-                <div id="divConfirmacaoSenha" class="loginDivs">
-                    <label class="label" for="confirmacao">Confirme sua Senha</label>
-                    <input class="campo" type="password" name="confirmacao" id="campoConfirmacaoSenha" placeholder="************" required onchange="onChangeConfirmPasswordCadastro()">
-                </div>
-                <div id="divButtonsCadastro" class="loginDivs">
-                    <button id="buttonSalvarCadastro" class="buttons" type="submit" disabled="true">Cadastrar</button>
-                    <button id="fecharCadastro" class="buttons">Cancelar</button>
-                </div>
-            </form>                        
-        </dialog>
-        <!-- -->       
-        <div id="divLoginGoogle" class="loginDivs">
-            <input type="image" src="assets/images/buttonGoogle.svg" id="buttonLoginGoogle" class="buttons" alt="Fazer login com sua conta Google">
-        </div>
-        <div id="divMuteSound">
-            <input id="muteSoundButton" class="muteSoundButton" type="image" src="assets/images/soundOn.svg" alt="Mute/Unmute sound">
-        </div>
-    </div>
+    </body>
+    <script src="loading.js"></script>
     <script src="loginScript.js"></script>
-    <script src="soundScript.js"></script>
-</body>
+    <script src="soundScript.js"></script>     
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+    <script src="firebaseInit.js"></script>
 </html>

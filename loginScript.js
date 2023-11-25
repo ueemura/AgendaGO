@@ -1,43 +1,3 @@
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    window.location.href = 'main.html';
-});
-
-document.getElementById('buttonLoginGoogle').addEventListener('click', function() {
-    window.location.href = 'main.html';
-});
-
-// Modal Cadastrar Engine
-var modalCadastro = document.getElementById('formCadastro'); 
-var openModalCadastro = document.getElementById('buttonCadastrar'); 
-var buttonCloseCadastro = document.getElementById('fecharCadastro');
-
-openModalCadastro.onclick = function() {
-    modalCadastro.showModal();
-}
-
-buttonCloseCadastro.onclick = function() {
-    modalCadastro.close();
-};
-
-document.getElementById('buttonCadastrar').addEventListener('click', function() {
-    modalCadastro.classList.add('show'); // Adiciona a classe show ao abrir
-    transferirValoresDoLoginParaCadastro();
-});
-
-buttonCloseCadastro.onclick = function() {
-    modalCadastro.classList.remove('show'); // Remove a classe show ao fechar
-};
-
-document.getElementById('fecharCadastro').addEventListener('click', function() {
-    modalCadastro.close();
-});
-
-document.getElementById('buttonCadastrar').addEventListener('click', function() {
-    modalCadastro.showModal();
-    transferirValoresDoLoginParaCadastro();
-});
-
 // Validação de Email e Senha
 
 function onChangeEmail() {
@@ -48,6 +8,44 @@ function onChangeEmail() {
 function onChangePassword() {
     toggleButtonsDisable();
     togglePasswordErrors();
+}
+
+function login() {
+    showLoading();
+    firebase.auth().signInWithEmailAndPassword(formEntrar.email().value, formEntrar.password().value).then(response => {
+        setTimeout(() => {
+            hideLoading();
+            window.location.href = "main.html";
+        }, 3000);
+    }).catch(error => {
+        setTimeout(() => {
+            hideLoading();
+            alert(getErrorMessage(error));
+        }, 3000)
+    })
+}
+
+function getErrorMessage(error) {
+    /*if (error.code == "auth/invalid-login-credentials") {
+        return "Usuário ou senha inválidos!";
+    } else if (error.code == "auth/email-already-in-use"){
+        return "Este email já está cadastrado!";
+    }*/
+    return error.message;
+}
+
+function recoverPassword() {
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(formEntrar.email().value).then(() => {
+        setTimeout(() => { 
+            hideLoading();
+            alert("Email para recuperação de senha enviado com sucesso!");
+         }, 3000);}).catch(error => {
+        setTimeout(() => { 
+            hideLoading();
+            alert(getErrorMessage(error));
+         }, 3000);        
+    });
 }
 
 function isEmailValid() {
@@ -95,6 +93,37 @@ const formEntrar = {
     recoverPassword: () => document.getElementById("buttonEsqueci")
 }
 
+// Modal Cadastrar Engine
+var modalCadastro = document.getElementById('formCadastro'); 
+var openModalCadastro = document.getElementById('buttonCadastrar'); 
+var buttonCloseCadastro = document.getElementById('fecharCadastro');
+
+openModalCadastro.onclick = function() {
+    modalCadastro.showModal();
+}
+
+buttonCloseCadastro.onclick = function() {
+    modalCadastro.close();
+};
+
+document.getElementById('buttonCadastrar').addEventListener('click', function() {
+    modalCadastro.classList.add('show'); // Adiciona a classe show ao abrir
+    transferirValoresDoLoginParaCadastro();
+});
+
+buttonCloseCadastro.onclick = function() {
+    modalCadastro.classList.remove('show'); // Remove a classe show ao fechar
+};
+
+document.getElementById('fecharCadastro').addEventListener('click', function() {
+    modalCadastro.close();
+});
+
+document.getElementById('buttonCadastrar').addEventListener('click', function() {
+    modalCadastro.showModal();
+    transferirValoresDoLoginParaCadastro();
+});
+
 // Validação de Email, Senha e Confirmação da Senha de Cadastro
 function onChangeEmailCadastro() {
     toggleButtonsDisableCadastro();
@@ -112,6 +141,23 @@ function onChangeConfirmPasswordCadastro() {
     toggleConfirmPasswordErrorsCadastro();
 }
 
+function register() {
+    showLoading();
+    const email = formCadastrar.email().value;
+    const password = formCadastrar.password().value;
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+        setTimeout(() => {
+            hideLoading();
+            window.location.href = "main.html";
+        }, 3000);
+    }).catch(error => {
+        setTimeout(() => {
+            hideLoading();
+            alert(getErrorMessage(error));
+        }, 3000)
+    })
+}
+
 function isEmailCadastroValid() {
     const emailCadastro = formCadastrar.email().value;
     return !emailCadastro ? false : validateEmail(emailCadastro);
@@ -126,6 +172,7 @@ function toggleEmailErrorsCadastro() {
 function togglePasswordErrorsCadastro () {
     const passwordCadastro = formCadastrar.password().value;
     formCadastrar.passwordRequiredError().style.color = !passwordCadastro ? "red" : "transparent";
+    formCadastrar.passwordMinLengthError().style.color = passwordCadastro.length >= 6 ? "transparent" : "red";
 }
 
 function toggleConfirmPasswordErrorsCadastro() {
@@ -159,6 +206,7 @@ const formCadastrar = {
     registerButton: () => document.getElementById("buttonSalvarCadastro"),
     password: () => document.getElementById("campoSenhaCadastro"),
     passwordRequiredError: () => document.getElementById("pInvalidPasswordCadastro"),
+    passwordMinLengthError: () => document.getElementById("pMinLengthError"),
     confirmPassword: () => document.getElementById("campoConfirmacaoSenha"),
     dissimilarPassword: () => document.getElementById("pDissimilarPasswordCadastro")
 }

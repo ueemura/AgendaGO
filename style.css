@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+.divLoad {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 100%;
+    font-color: #002058;
+    z-index: 999;
+}
+
 body {
     margin: 0;
 }
@@ -33,7 +52,7 @@ body {
 }
 
 #pEmailRequired, #pInvalidEmail, #pInvalidPassword, #pEmailRequiredCadastro,
-#pInvalidEmailCadastro, #pInvalidPasswordCadastro, #pDissimilarPasswordCadastro {
+#pInvalidEmailCadastro, #pInvalidPasswordCadastro, #pMinLengthError, #pDissimilarPasswordCadastro {
     margin: 0; 
     color: transparent;
     cursor: default;
@@ -114,10 +133,6 @@ body {
     color: #4472C4;
 }
 
-/*#formCadastro, #setarTituloNovoDoc {
-    padding: 0 0 2vh 0;
-}*/
-
 #divEsqueci {
     margin: 1vh;
 }
@@ -173,6 +188,15 @@ body {
 #formCadastro.show, #setarTituloNovoDoc.show {
     opacity: 1; /* Torna o dialog visível */
     transform: scale(1); /* Retorna ao tamanho normal */
+    z
+}
+
+#formCadastro {
+    z-index: 997;
+}
+
+#formCadastro.show {
+    z-index: 998;
 }
 
 #tituloCadastro, #tituloDaNovaAnotacao {
@@ -362,11 +386,67 @@ body {
     margin: 4vh 3vh 0 0 !important;
 }
 
-/*#mensagemErro{
-    font-size: 16px;
-    color: red; * Cor para a mensagem de erro *
-    text-align: center;
-    top: 55%;
-    position: absolute;
-    font-family: Roboto;
-}*/
+// Loading Animation
+#h1Loading {
+    
+} 
+.spanLoading {
+    position: relative;
+    top: 0.63em;  
+    display: inline-block;
+    text-transform: uppercase;  
+    opacity: 0;
+    transform: rotateX(-90deg);
+}
+
+#let1 {
+  animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.2s;
+}
+#let2 {
+    animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.3s;
+}
+#let3 {
+    animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.4s;
+}
+#let4 {
+    animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+#let5 {
+    animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.6s;
+}
+#let6 {
+    animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.7s;
+}
+#let7 {
+    animation: drop 1.2s ease-in-out infinite;
+    animation-delay: 1.8s;
+}
+@keyframes drop {
+    10% {
+        opacity: 0.5;
+    }
+    20% {
+        opacity: 1;
+        top: 3.78em;
+        transform: rotateX(-360deg);
+    }
+    80% {
+        opacity: 1;
+        top: 3.78em;
+        transform: rotateX(-360deg);
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0;
+        top: 6.94em
+    }
+}
+// Ending Loading Animation
