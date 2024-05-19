@@ -8,11 +8,7 @@
 
 <p align="center">Camila Uemura Bretone</p>
 
-<p align="center">Carlos Eduardo Rodrigues Cury</p>
-
 <p align="center">Daniel Ramon Ferreira Silva</p>
-
-<p align="center">João Vitor de Moraes</p>
 
 <p align="center">Marcello Pontes Barreto</p>
 
